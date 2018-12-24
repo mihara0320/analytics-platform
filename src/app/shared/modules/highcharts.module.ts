@@ -4,7 +4,7 @@ import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
 import * as Highcharts from 'highcharts';
 declare var require: any;
 
-let highcharts: any = Highcharts;
+const highcharts: any = Highcharts;
 
 highcharts.createElement('link', {
    href: 'https://fonts.googleapis.com/css?family=Unica+One',
@@ -16,7 +16,7 @@ highcharts.theme = {
    colors: ['#2b908f', '#90ee7e', '#f45b5b', '#7798BF', '#aaeeee', '#ff0066',
       '#eeaaee', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'],
    chart: {
-      backgroundColor:'rgba(255, 255, 255, 0.0)',
+      backgroundColor: 'rgba(255, 255, 255, 0.0)',
       style: {
          fontFamily: '\'Unica One\', sans-serif'
       },
@@ -211,7 +211,7 @@ export function highchartsFactory() {
       require('highcharts/modules/stock.src'),
       require('highcharts/highcharts-more'),
       require('highcharts/modules/solid-gauge')
-    )
+    );
     Highcharts.setOptions(highcharts.theme);
     return Highcharts;
 }
@@ -223,7 +223,7 @@ export function highchartsFactory() {
   exports: [
     ChartModule
   ],
-  providers:[
+  providers: [
   	{ provide: HighchartsStatic, useFactory: highchartsFactory }
   ]
 })

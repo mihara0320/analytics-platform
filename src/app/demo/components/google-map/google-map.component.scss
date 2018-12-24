@@ -1,10 +1,8 @@
-@import "~styles/_variables";
-
 :host(google-map){
   display: flex;
-  height: 100%;
-  min-height: 350px;
+  height: 350px;
   width: 100%;
+
   .sebm-google-map-container {
     height: 100%;
     width: 100%;

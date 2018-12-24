@@ -22,8 +22,8 @@
       flex-direction: column;
       justify-content: center;
       height: 100%;
-      svg{
-        fill: $primary-color;
+      img {
+        height: 80%;
       }
     }
   }
@@ -40,6 +40,10 @@
           display: flex;
           justify-content: space-between;
           width: 100% !important;
+        }
+        &.selected {
+          color: $dark-color;
+          background-color: rgba(0,0,0,1);
         }
       }
       a:hover {

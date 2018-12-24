@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../shared/services/data.service';
 import { ResponseData } from '../../shared/interfaces/response-data';
 import { SubjectService } from '../../shared/services/subject.service';
-import { SubjectInstance, InstanceWrapper } from '../../shared/interfaces/subject';
+import { InstanceWrapper } from '../../shared/interfaces/subject';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -11,8 +11,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./current.component.scss']
 })
 export class CurrentComponent implements OnInit {
-
-  dataReceived: boolean = false;
+  dataReceived = false;
   data: any;
   status: any;
   id: any;
@@ -31,53 +30,54 @@ export class CurrentComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    //this._data.getCurrentData().subscribe((res: ResponseData) => {
     this._data.getMockCurrentData().subscribe((res: ResponseData) => {
-      this.data = res.data.data
-      this.status = res.data.status
-      this.id = res.data.id
+      this.data = res.data.data;
+      this.status = res.data.status;
+      this.id = res.data.id;
 
       this.socData = new Observable(obs => obs.next([{
-          label: 'main',
-          data: this.data['state_of_charge'],
-        },{
-          label: 'sub',
-          data: this.data['small_bat_soc']
-      }]))
+        label: 'main',
+        data: this.data['state_of_charge'],
+      }, {
+        label: 'sub',
+        data: this.data['small_bat_soc']
+      }]));
       this.tempData = new Observable(obs => obs.next([{
-          label: 'main',
-          data: this.data['temperature'],
-        },{
-          label: 'sub',
-          data: this.data['small_bat_temp']
-      }]))
+        label: 'main',
+        data: this.data['temperature'],
+      }, {
+        label: 'sub',
+        data: this.data['small_bat_temp']
+      }]));
       this.voltData = new Observable(obs => obs.next([{
-          label: 'main',
-          data: this.data['voltage'],
-        },{
-          label: 'sub',
-          data: this.data['small_bat_voltage']
-      }]))
+        label: 'main',
+        data: this.data['voltage'],
+      }, {
+        label: 'sub',
+        data: this.data['small_bat_voltage']
+      }]));
 
-      Object.keys(this.data).forEach( label => {
-        if(!this.timestamp)
-          this.timestamp = this.data[label].timestamp
-        let wrapper: InstanceWrapper = {
+      Object.keys(this.data).forEach(label => {
+        if (!this.timestamp) {
+          this.timestamp = this.data[label].timestamp * 1000;
+        }
+
+        const wrapper: InstanceWrapper = {
           label: label,
           tv_data: [[this.data[label].timestamp, this.data[label].value]],
           instance: this._subject.createInstance()
         };
-        this.labels.push(label)
-        this.subjects.push(wrapper)
-      })
+        this.labels.push(label);
+        this.subjects.push(wrapper);
+      });
       this.dataReceived = true;
-    })
+    });
   }
-  setSubject(label){
+  setSubject(label) {
     let subject;
-    for (let s of this.subjects)
-      if(s.label == label)
-        subject = s
-    return subject
+    for (const s of this.subjects)
+      if (s.label === label)
+        subject = s;
+    return subject;
   }
 }

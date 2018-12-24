@@ -8,7 +8,7 @@ export interface SubjectInstance {
 }
 
 export interface InstanceWrapper {
-  label: string,
-  tv_data: Array<Array<number>>,
-  instance: SubjectInstance,
+  label: string;
+  tv_data: Array<Array<number>>;
+  instance: SubjectInstance;
 }
