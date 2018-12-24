@@ -1,0 +1,40 @@
+<div id='container' *ngIf="dataReceived; else loading" fxLayout='column'>
+
+  <mat-card>
+    <stock-chart [tv_data_obs]="tv_data_obs | async" [subjects]='subjects'></stock-chart>
+  </mat-card>
+
+  <div fxLayout.lt-sm="column" fxLayout='row wrap' fxLayoutAlign="space-between">
+
+    <mat-card fxLayout='row' fxLayoutAlign="center center"
+              fxFlex='50' fxFlexOrder='1'
+              fxFlex.lt-sm='30' fxFlexOrder.lt-sm='1'
+              fxFlex.lt-lg='100' fxFlexOrder.lt-lg='2'>
+      <google-map [subject_lat]="setSubject('gps_lat')" [subject_lon]="setSubject('gps_lon')"></google-map>
+    </mat-card>
+
+    <div fxFlex='49' fxFlexOrder='2' fxLayout='row wrap' fxLayoutAlign="space-between"
+         fxFlex.lt-sm='70' fxFlexOrder.lt-sm='2'
+         fxFlex.lt-lg='100' fxFlexOrder.lt-lg='1' >
+      <mat-card fxFlex='49' fxLayout='column' fxLayoutAlign='center'
+                fxFlex.lt-sm='100'>
+        <gauge title='state_of_charge' [subject]="setSubject('state_of_charge')"></gauge>
+      </mat-card>
+      <mat-card fxFlex='49' fxLayout='column' fxLayoutAlign='center'
+                fxFlex.lt-sm='100'>
+        <gauge title='small_bat_soc' [subject]="setSubject('small_bat_soc')"></gauge>
+      </mat-card>
+      <mat-card fxFlex='49'
+                fxFlex.lt-sm='100' >
+        <simple-display title='speed' unit='km/h' [subject]="setSubject('speed')"></simple-display>
+      </mat-card>
+      <mat-card fxFlex='49'
+                fxFlex.lt-sm='100' >
+        <simple-display title='total_distance' unit='km' [subject]="setSubject('total_distance')"></simple-display>
+      </mat-card>
+    </div>
+  </div>
+
+</div>
+
+<ng-template style="width:100%; height:100%;" #loading><app-loading-spinner></app-loading-spinner></ng-template >

@@ -1,0 +1,27 @@
+@import "~styles/_variables";
+
+:host(table){
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+
+  #container{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+
+    .mat-table{
+      background-color: transparent;
+
+      .mat-header-cell, .mat-cell, {
+        color: $font-color;
+        font-size: 1rem;
+      }
+
+      .mat-header-row, .mat-row{
+        border-color: rgba(#fff, .2)
+      }
+    }
+  }
+}

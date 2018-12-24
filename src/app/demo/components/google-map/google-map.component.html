@@ -1,0 +1,10 @@
+
+<agm-map [latitude]="lat" [longitude]="lng" #map>
+  <agm-marker [latitude]="lat" [longitude]="lng">
+    <agm-snazzy-info-window [maxWidth]="200" [closeWhenOthersOpen]="true" #snazzyWindow>
+      <ng-template>
+        My first Snazzy Info Window!
+      </ng-template>
+    </agm-snazzy-info-window>
+  </agm-marker>
+</agm-map>

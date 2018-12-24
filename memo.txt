@@ -1,0 +1,61 @@
+### loading screen
+
+ ######Chart API value
+"timestamp_sec" - Unix timestamp
+"state_of_charge" - Battery left
+"small_bat_soc" - Soc for small battery?
+"small_bat_voltage" - Voltage for small battery?
+"small_bat_temp" - Temperature of small battery?
+"speed"
+"total_distance"
+"avg_gps_hdop" -  average Horizontal Dilution of precision, more details
+                  https://en.wikipedia.org/wiki/Dilution_of_precision_(navigation)
+"gps_hdop"
+"gps_lat"  - gps latitude
+"gps_lon" - gps longitude
+
+######CurrentData API value
+"avg_gps_hdop"
+"temperature"
+"state_of_charge"
+"total_distance"
+"small_bat_voltage"
+"voltage"
+"timestamp"
+"gsm_lat"
+"speed"
+"small_bat_temp"
+"gps_lat"
+"gps_lon"
+"gps_hdop"
+"small_bat_soc"
+
+"status": {
+		"vehicle_state": {
+			"timestamp": 1507641658,
+			"value": 1
+		},
+		"vehicle_lock_status": {
+			"timestamp": 1507641658,
+			"value": 1
+		},
+		"casing_lock_status": {
+			"timestamp": 1507641658,
+			"value": 1
+		},
+		"immo_status": {
+			"timestamp": 1507641658,
+			"value": 0
+		},
+		"session_status": {
+			"value": 0,
+			"timestamp": 1507641658
+		},
+		"general_lock_status": {
+			"timestamp": 1507641658,
+			"value": 1
+		},
+		"key_status": {
+			"timestamp": 1507641658,
+			"value": 0
+		}

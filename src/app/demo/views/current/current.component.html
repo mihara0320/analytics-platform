@@ -1,0 +1,56 @@
+
+<div id='container' *ngIf="dataReceived; else loading" fxLayout='column'>
+  <div fxLayout="row" fxLayoutAlign="space-between"
+       fxLayout.lt-lg="column">
+    <mat-card fxFlex='70' fxFlexOrder='1'
+              fxFlex.lt-lg='100' fxFlexOrder.lt-lg='2'>
+      <google-map [subject_lat]="setSubject('gps_lat')" [subject_lon]="setSubject('gps_lon')"></google-map>
+    </mat-card>
+    <mat-card fxFlex='29' fxFlexOrder='2'
+              fxFlex.lt-lg='100' fxFlexOrder.lt-lg='1'>
+      <mat-card-header>
+        <mat-card-title>Details</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item>
+            <mat-icon matListIcon>schedule</mat-icon>
+            <h3 matLine> {{timestamp | date:'short'}} </h3>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon matListIcon>account_circle</mat-icon>
+            <h3 matLine> {{id}} </h3>
+          </mat-list-item>
+        </mat-list>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+  <div fxLayout.lt-sm="column" fxLayout="row" fxLayoutAlign="space-between">
+    <mat-card fxFlex='33'
+              fxFlex.lt-sm='100' >
+      <bar-chart title='state_of_charge' unit='%' [data]='socData | async'></bar-chart>
+    </mat-card>
+    <mat-card fxFlex='33'
+              fxFlex.lt-sm='100'>
+      <bar-chart title='temperature' unit='°C' [data]='tempData | async'></bar-chart>
+    </mat-card>
+    <mat-card fxFlex='33'
+              fxFlex.lt-sm='100' >
+      <bar-chart title='voltage' unit='V' [data]='voltData | async'></bar-chart>
+    </mat-card>
+  </div>
+
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Status</mat-card-title>
+    </mat-card-header>
+    <table [status]='status'></table>
+  </mat-card>
+
+</div>
+
+<ng-template style="width:100%; height:100%;" #loading><app-loading-spinner></app-loading-spinner></ng-template >

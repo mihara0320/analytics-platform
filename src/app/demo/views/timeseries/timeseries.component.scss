@@ -1,0 +1,28 @@
+@import "~styles/_variables";
+
+:host(app-timeseries) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 10%;
+
+  #container{
+    height: 100%;
+    width: 100%;
+    .mat-card{
+      font-family: $font;
+      color: $font-color;
+      border-radius: 5px;
+      box-shadow: 0 5px 5px 0 rgba(0,0,0,.25);
+      background-color: rgba(#fff, .1);
+      margin-bottom: 1rem;
+      padding: 0.5%;
+      .mat-card-header{
+        border-bottom: solid;
+        border-color: rgba(#fff,.25);
+        margin-bottom: 5px;
+      }
+    }
+  }
+}

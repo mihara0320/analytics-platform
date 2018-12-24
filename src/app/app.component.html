@@ -1,0 +1,35 @@
+<mat-toolbar>
+  <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+  <div id="logo-container">
+      <svg viewBox="0 0 812.8 232.5" id="shape-logo-horizontal" height="70%">
+        <title>logo-horizontal</title>
+        <g id="logo-horizontal-graafika">
+          <path d="M812.8,43.2A135.33,135.33,0,0,0,767.2.1h0L767.1,0c-19.5,28.6-46.4,51-80.2,66.7C654.5,81.8,626,85.1,609.6,85.1H570.5a133.4,133.4,0,0,0,0,62.4h39.1c19.3,0,58.3-3.1,103.6-24.2C754,104.2,787.4,77.3,812.8,43.2Z" transform="translate(0 0)"></path>
+          <path d="M812.8,189.3a249.63,249.63,0,0,0-63.2-59.7,297.67,297.67,0,0,1-26.9,14.1,285.47,285.47,0,0,1-47.2,17.2c3.7,1.5,7.5,3.1,11.3,4.9,33.7,15.7,60.7,38.1,80.2,66.7l0.1-.1h0A132.83,132.83,0,0,0,812.8,189.3Z" transform="translate(0 0)"></path>
+          <polygon points="152.9 119.9 152.9 147.4 135.7 147.4 135.7 85.1 148.5 85.1 169.2 120.2 189.8 85.1 202.7 85.1 202.7 147.4 185.4 147.4 185.4 120.1 169.2 147.6 152.9 119.9"></polygon>
+          <path d="M276.9,147.4V85.1h25.3c19.4,0,33.5,13,33.5,31,0,18.2-14.1,31.3-33.5,31.3H276.9Zm17.3-15.8h8c9.1,0,16-6.7,16-15.5,0-8.6-6.9-15.2-16-15.2h-8v30.7Z" transform="translate(0 0)"></path>
+          <path d="M369.5,148.7c-17.9,0-29-11.7-29-30.5V85.1h17.4v33.4c0,8.5,4.5,13.8,11.6,13.8s11.7-5.3,11.7-13.8V85.1h17.4v33.2C398.7,137,387.5,148.7,369.5,148.7Z" transform="translate(0 0)"></path>
+          <polygon points="406.1 147.4 406.1 85.1 423.4 85.1 423.4 131.8 453 131.8 453 147.4 406.1 147.4"></polygon>
+          <path d="M47.3,124.2A16.81,16.81,0,1,1,32.4,99.6a16.92,16.92,0,0,1,15,9.1H63.9a32.55,32.55,0,1,0-.1,15.5H47.3Z" transform="translate(0 0)"></path>
+          <path d="M98.6,84A32.4,32.4,0,1,0,131,116.4,32.39,32.39,0,0,0,98.6,84Zm0,49.2a16.8,16.8,0,1,1,16.8-16.8A16.77,16.77,0,0,1,98.6,133.2Z" transform="translate(0 0)"></path>
+          <path d="M239.8,84a32.4,32.4,0,1,0,32.4,32.4A32.39,32.39,0,0,0,239.8,84Zm0,49.2a16.8,16.8,0,1,1,16.8-16.8A16.77,16.77,0,0,1,239.8,133.2Z" transform="translate(0 0)"></path>
+          <polygon points="505.7 100.4 505.7 85.1 458 85.1 458 147.4 505.7 147.4 505.7 132 475.3 132 475.3 123.5 498.4 123.5 498.4 109 475.3 109 475.3 100.4 505.7 100.4"></polygon>
+        </g>
+      </svg>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #snav mode="over" fixedTopGap="56">
+    <mat-nav-list>
+      <a mat-list-item *ngFor="let nav of navs" [routerLink]="nav.link" text='test' (click)="snav.close()">
+        <mat-icon matListIcon>{{ nav.icon }}</mat-icon>
+        <div matLine><span>{{ nav.title }}</span></div>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

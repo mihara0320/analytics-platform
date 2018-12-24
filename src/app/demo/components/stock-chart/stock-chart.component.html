@@ -1,0 +1,5 @@
+<chart *ngIf="options" type="StockChart" [options]="options" #instance>
+  <series>
+   <point (mouseOver)="onPointMouseOver($event)"></point>
+  </series>
+</chart>

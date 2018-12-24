@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'variables';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "~snazzy-info-window/dist/snazzy-info-window.css";
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@font-face {
+  font-family: 'digital-7';
+  src: url("/assets/fonts/digital-7.ttf");
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.5;
+}
+
+app-root,
+body,
+html {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  background-image: url("/assets/images/blur-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: $font;
+}

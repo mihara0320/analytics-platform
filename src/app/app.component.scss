@@ -1,0 +1,67 @@
+@import "~styles/_variables";
+
+:host(app-root) {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  overflow-x: hidden;
+
+  .mat-toolbar{
+    color: $font-color;
+    background-color: $transparent-black;
+
+    #logo-container{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      svg{
+        fill: $primary-color;
+      }
+    }
+  }
+
+  .mat-sidenav-container{
+    height: 100%;
+    background-color: transparent;
+
+    .mat-sidenav{
+      background-color: $transparent-black;
+      .mat-list-item {
+        color: $font-color;
+        .mat-list-item-content{
+          display: flex;
+          justify-content: space-between;
+          width: 100% !important;
+        }
+      }
+      a:hover {
+        color: $primary-color;
+      }
+    }
+    .mat-sidenav-content{
+      padding: 1.5%;
+      color: $font-color;
+      overflow-x: hidden;
+    }
+    .mat-sidenav-content::-webkit-scrollbar-track {
+    	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    	background-color: transparent;
+    }
+    .mat-sidenav-content::-webkit-scrollbar {
+    	width: 10px;
+    	background-color: transparent;
+    }
+    .mat-sidenav-content::-webkit-scrollbar-thumb {
+    	// background-color: #214b2b;
+      background-color: $dark-color;
+    }
+  }
+}

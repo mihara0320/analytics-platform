@@ -1,0 +1,13 @@
+@import "~styles/_variables";
+
+:host(stock-chart){
+  display: flex;
+  width: 100%;
+  height: auto;
+
+  chart {
+    // display: flex;
+    width: 100%;
+    height: auto;
+  }
+}
